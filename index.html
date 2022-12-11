@@ -5,23 +5,27 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <script src="script.js"></script>
+    <script src="script.js" defer></script>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="hero">Library</div> 
-    <button class="newBook">Add a new book</button>
+    <button class="newBook" id="newBook">Add a new book</button>
     <div class="container">
-        <div class="card"></div>
+        
     </div>
 
     <div id="newInfo" class="modal">
         <div class="modal-content">
+            <form method="post" name="submitBook" id="submitBook">
             <h2>Please add the  book</h2> 
-            <input type="text" id="book.title">
-            <input type="text" id="book.author">
-            <input type="text" id="book.pageLength">
-            <input type="text" id="book.readStatus">
+                <input type="text" id="title">
+                <input type="text" id="author">
+                <input type="text" id="pageLength">
+                <input type="text" id="readStatus">
+                <input type="submit" id="submit"  value="Submit">
+                <span class="close">&times;</span>
+            </form>
         </div>
     </div>
     

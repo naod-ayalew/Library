@@ -1,5 +1,11 @@
 let myLibrary = [];
-const cont = document.querySelector('.container');
+const sub = document.getElementById('submit');
+const form = document.querySelector('#submitBook');
+const modal = document.querySelector('.modal');
+const btn = document.querySelector('.newBook');
+const span = document.querySelector('.close');
+
+
 
 function Book(title, author, pageLength, readStatus) {
     this.title = title;
@@ -21,18 +27,48 @@ function Book(title, author, pageLength, readStatus) {
 function addBookToLibrary(newBook) {
     myLibrary.push(newBook);
 }
-
-function createCard(book) {
-    const div = document.createElement('div');
-    console.log(book.name)
-    div.className = 'card'
-    div.innerHTML =  `
-    <h2> ${book.title} </h2>
-    <p> ${book.author} </p>
-    <p class="pageLength"> ${book.pageLength} </p>
-    <button class="readToggle"> ${book.readStatus}</button>
-    `
-    document.querySelector('.container').appendChild(div)
-
+function createCard() {
+    const title = document.getElementById("title").value;
+    const author = document.getElementById("author").value;
+    const pageLength = document.getElementById("pageLength").value;
+    const readStatus = document.getElementById("readStatus").value;
  
+    ex = new Book(title, author, readStatus, pageLength)
+    addBookToLibrary(ex)
+    console.log(myLibrary)
+    const div = document.createElement('div');
+  
+    div.className = 'card'
+    div.innerHTML =  
+    `<h2> ${ex.title} </h2>
+    <p> ${ex.author} </p>
+    <p class="pageLength"> ${ex.ageLength} </p>
+    <button class="readToggle"> ${ex.readStatus}</button>`;
+    document.querySelector('.container').appendChild(div);
+
+    document.getElementById("title").value = ''
+    document.getElementById("author").value = ''
+    document.getElementById("pageLength").value = ''
+    document.getElementById("readStatus").value = ''
+     
 }
+span.onclick = function() {
+    modal.style.display = "none";
+  }
+  
+
+
+ sub.addEventListener('click', (event) => {
+    event.preventDefault()
+    createCard()
+ });
+
+btn.onclick = function () {
+    modal.style.display = "block"
+}
+
+window.onclick = function(event) {
+    if (event.target == modal) {
+      modal.style.display = "none";
+    }
+  }

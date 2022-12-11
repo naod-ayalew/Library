@@ -27,7 +27,9 @@ body {
     grid-row: 2 /3;
     grid-column: 1 / 4;
     display: grid;
-    grid-template: 1fr 1fr /20% 20% 20% 20% 20%  ;
+    grid-template-rows: 20% 20% 20% 20% 20%  ;
+    grid-template-columns: repeat( auto-fit, clamp(100px, 250px, 200px) );
+    gap: 30px;
 }
 
 .card {
@@ -37,11 +39,12 @@ body {
     justify-content: center;
     align-content: center;
     gap: 20px;
+    border-radius: 14%;
 
 }
 
 .modal {
-    display: block; /* Hidden by default */
+    display: none; /* Hidden by default */
     position: fixed; /* Stay in place */
     z-index: 1; /* Sit on top */
     left: 0;
