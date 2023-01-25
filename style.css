@@ -28,7 +28,7 @@ body {
     grid-column: 1 / 4;
     display: grid;
     grid-template-rows: 20% 20% 20% 20% 20%  ;
-    grid-template-columns: repeat( auto-fit, clamp(100px, 250px, 200px) );
+    grid-template-columns: repeat( auto-fit, clamp(200px, 400px, 300px) );
     gap: 30px;
 }
 
